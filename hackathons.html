@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackathons — Dhruvesh Singh Om</title>
+    <meta name="description"
+        content="Hackathons participated and won by Dhruvesh Singh Om — national-level events, innovative solutions built under pressure.">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primary: #0f0f1a;
+            --color-card: #1e1e35;
+            --color-accent: #a855f7;
+            --color-gradient: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #ec4899 100%);
+            --color-gradient-soft: linear-gradient(135deg, rgba(124, 58, 237, 0.12) 0%, rgba(236, 72, 153, 0.12) 100%);
+            --color-white: #f0f0ff;
+            --color-grey-2: #8888aa;
+            --color-grey-3: #555580;
+            --color-grey-4: #2a2a4a;
+            --color-success: #10b981;
+            --color-warning: #f59e0b;
+            --color-error: #ef4444;
+            --shadow-glow: 0 0 30px rgba(124, 58, 237, .35);
+            --shadow-md: 0 4px 20px rgba(0, 0, 0, .3);
+            --br-md: 14px;
+            --br-lg: 24px;
+            --br-full: 9999px;
+            --transition-fast: 0.2s ease;
+            --transition-std: 0.4s ease;
+        }
+
+        .light-mode {
+            --color-primary: #f8f8ff;
+            --color-card: #f0f0fa;
+            --color-white: #1a1a2e;
+            --color-grey-2: #555580;
+            --color-grey-4: #e2e2f0;
+        }
+
+        body {
+            background: var(--color-primary);
+            font-family: 'Poppins', sans-serif;
+            color: var(--color-white);
+            min-height: 100vh;
+            transition: background var(--transition-std), color var(--transition-std);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* TOPBAR */
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(15, 15, 26, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--color-grey-4);
+            padding: 0.9rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .light-mode .topbar {
+            background: rgba(248, 248, 255, 0.85);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--color-accent);
+            border: 1px solid var(--color-accent);
+            padding: 0.4rem 1rem;
+            border-radius: var(--br-full);
+            transition: all var(--transition-fast);
+            cursor: pointer;
+            background: none;
+            font-family: inherit;
+        }
+
+        .back-btn:hover {
+            background: var(--color-gradient);
+            color: #fff;
+            border-color: transparent;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .topbar-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .topbar-title span {
+            background: var(--color-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--color-card);
+            border: 1px solid var(--color-grey-4);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-grey-2);
+            font-size: 1rem;
+            transition: all var(--transition-fast);
+        }
+
+        .theme-toggle:hover {
+            background: var(--color-gradient);
+            color: #fff;
+            border-color: transparent;
+            box-shadow: var(--shadow-glow);
+        }
+
+        /* PAGE HERO */
+        .page-hero {
+            text-align: center;
+            padding: 4rem 2rem 2.5rem;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--color-gradient-soft);
+            border: 1px solid rgba(124, 58, 237, .3);
+            color: var(--color-accent);
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 0.3rem 0.9rem;
+            border-radius: var(--br-full);
+            margin-bottom: 1rem;
+        }
+
+        .page-hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.6rem;
+        }
+
+        .page-hero h1 span {
+            background: var(--color-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-hero p {
+            color: var(--color-grey-2);
+            font-size: 1rem;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        /* STATS ROW */
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding: 1.5rem 2rem 2.5rem;
+        }
+
+        .stat-pill {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: var(--color-card);
+            border: 1px solid var(--color-grey-4);
+            padding: 0.6rem 1.4rem;
+            border-radius: var(--br-full);
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+
+        .stat-pill i {
+            font-size: 1rem;
+        }
+
+        .stat-pill .pill-num {
+            background: var(--color-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.2rem;
+            font-weight: 800;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* FILTERS */
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 0.7rem;
+            flex-wrap: wrap;
+            padding: 0 1.5rem 2rem;
+        }
+
+        .filter-pill {
+            padding: 0.45rem 1.2rem;
+            border-radius: var(--br-full);
+            background: var(--color-card);
+            color: var(--color-grey-2);
+            font-size: 0.82rem;
+            font-weight: 600;
+            border: 1px solid var(--color-grey-4);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .filter-pill:hover,
+        .filter-pill.active {
+            background: var(--color-gradient);
+            color: #fff;
+            border-color: transparent;
+            box-shadow: var(--shadow-glow);
+        }
+
+        /* GRID */
+        .hackathons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        /* CARD */
+        .hack-card {
+            background: var(--color-card);
+            border: 1px solid var(--color-grey-4);
+            border-radius: var(--br-lg);
+            padding: 1.6rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+            transition: all var(--transition-std);
+            position: relative;
+            overflow: hidden;
+            animation: cardIn 0.5s ease both;
+        }
+
+        .hack-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--color-gradient);
+            transform: scaleX(0);
+            transition: transform var(--transition-std);
+        }
+
+        .hack-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .hack-card:hover {
+            border-color: var(--color-accent);
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .hack-card.hidden {
+            display: none;
+        }
+
+        @keyframes cardIn {
+            from {
+                opacity: 0;
+                transform: translateY(24px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .hack-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 0.8rem;
+        }
+
+        .hack-emoji {
+            font-size: 2.2rem;
+            line-height: 1;
+        }
+
+        /* Result badges */
+        .result-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            padding: 0.25rem 0.7rem;
+            border-radius: var(--br-full);
+        }
+
+        .badge-winner {
+            background: rgba(245, 158, 11, .15);
+            border: 1px solid rgba(245, 158, 11, .4);
+            color: var(--color-warning);
+        }
+
+        .badge-finalist {
+            background: rgba(168, 85, 247, .15);
+            border: 1px solid rgba(168, 85, 247, .4);
+            color: var(--color-accent);
+        }
+
+        .badge-participant {
+            background: rgba(16, 185, 129, .15);
+            border: 1px solid rgba(16, 185, 129, .4);
+            color: var(--color-success);
+        }
+
+        .hack-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            line-height: 1.35;
+        }
+
+        .hack-org {
+            font-size: 0.82rem;
+            color: var(--color-grey-2);
+        }
+
+        .hack-desc {
+            font-size: 0.85rem;
+            line-height: 1.8;
+            color: var(--color-grey-2);
+        }
+
+        .hack-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .hack-date {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.76rem;
+            color: var(--color-grey-3);
+        }
+
+        .hack-tag {
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.15rem 0.55rem;
+            border-radius: var(--br-full);
+            background: var(--color-gradient-soft);
+            border: 1px solid rgba(124, 58, 237, .25);
+            color: var(--color-accent);
+        }
+
+        .hack-team {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.8rem;
+            color: var(--color-grey-2);
+            margin-top: auto;
+        }
+
+        .hack-team i {
+            color: var(--color-accent);
+        }
+
+        .hack-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--color-accent);
+            border: 1px solid var(--color-accent);
+            padding: 0.3rem 0.85rem;
+            border-radius: var(--br-full);
+            transition: all var(--transition-fast);
+            align-self: flex-start;
+        }
+
+        .hack-link:hover {
+            background: var(--color-gradient);
+            color: #fff;
+            border-color: transparent;
+            box-shadow: var(--shadow-glow);
+        }
+
+        /* FOOTER */
+        .page-footer {
+            text-align: center;
+            padding: 1.5rem;
+            border-top: 1px solid var(--color-grey-4);
+            color: var(--color-grey-3);
+            font-size: 0.8rem;
+        }
+
+        .page-footer a {
+            color: var(--color-accent);
+        }
+
+        @media (max-width: 600px) {
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+
+            .hackathons-grid {
+                grid-template-columns: 1fr;
+                padding: 0 1rem 3rem;
+            }
+
+            .topbar {
+                padding: 0.7rem 1rem;
+            }
+
+            .stats-row {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body id="hack-body">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+        <a href="index.html" class="back-btn" id="back-to-portfolio">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+        <span class="topbar-title">Dhruvesh<span>.</span>Hackathons</span>
+        <button class="theme-toggle" id="hack-theme-btn" aria-label="Toggle theme">
+            <i class="fas fa-moon"></i>
+        </button>
+    </header>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="hero-badge"><i class="fas fa-bolt"></i> 7+ Hackathons</div>
+        <h1>My <span>Hackathons</span></h1>
+        <p>National-level competitions where I've built innovative solutions, led teams, and pushed the boundaries of
+            what's possible under pressure.</p>
+    </section>
+
+    <!-- STATS ROW -->
+    <div class="stats-row">
+        <div class="stat-pill">
+            <i class="fas fa-trophy" style="color:#f59e0b"></i>
+            <span class="pill-num">2</span> <span>Wins / Top 3</span>
+        </div>
+        <div class="stat-pill">
+            <i class="fas fa-medal" style="color:#a855f7"></i>
+            <span class="pill-num">2</span> <span>Finalist</span>
+        </div>
+        <div class="stat-pill">
+            <i class="fas fa-flag-checkered" style="color:#10b981"></i>
+            <span class="pill-num">3+</span> <span>Participated</span>
+        </div>
+    </div>
+
+    <!-- FILTERS -->
+    <div class="filters" id="hack-filters">
+        <button class="filter-pill active" data-filter="all" id="hf-all">All</button>
+        <button class="filter-pill" data-filter="winner" id="hf-winner">🏆 Won</button>
+        <button class="filter-pill" data-filter="finalist" id="hf-finalist">🥈 Finalist</button>
+        <button class="filter-pill" data-filter="participant" id="hf-participant">🎯 Participated</button>
+    </div>
+
+    <!-- HACKATHONS GRID -->
+    <main class="hackathons-grid" id="hackathons-grid">
+
+        <!-- Hackathon 1 — Winner -->
+        <article class="hack-card" data-category="winner" style="animation-delay:.05s">
+            <div class="hack-header">
+                <span class="hack-emoji">🏆</span>
+                <span class="result-badge badge-winner"><i class="fas fa-crown"></i> Winner</span>
+            </div>
+            <h2 class="hack-name">Smart India Hackathon (SIH) 2024</h2>
+            <p class="hack-org">Ministry of Education, Government of India</p>
+            <p class="hack-desc">
+                Built an innovative solution for a government problem statement. Led the team through ideation,
+                development, and live presentation to judges, securing a top position.
+            </p>
+            <div class="hack-meta">
+                <span class="hack-date"><i class="fas fa-calendar-alt"></i> 2024</span>
+                <span class="hack-tag">Web Dev</span>
+                <span class="hack-tag">AI/ML</span>
+            </div>
+            <div class="hack-team"><i class="fas fa-users"></i> Team of 6</div>
+            <a href="#" class="hack-link" id="hl-1">
+                <i class="fas fa-external-link-alt"></i> View Certificate
+            </a>
+        </article>
+
+        <!-- Hackathon 2 — Winner -->
+        <article class="hack-card" data-category="winner" style="animation-delay:.1s">
+            <div class="hack-header">
+                <span class="hack-emoji">🥇</span>
+                <span class="result-badge badge-winner"><i class="fas fa-crown"></i> 1st Place</span>
+            </div>
+            <h2 class="hack-name">LPU Internal Hackathon 2024</h2>
+            <p class="hack-org">Lovely Professional University, Jalandhar</p>
+            <p class="hack-desc">
+                Developed a full-stack Doctor Appointment web application, winning first place among competing student
+                teams for clean UI and working prototype delivery.
+            </p>
+            <div class="hack-meta">
+                <span class="hack-date"><i class="fas fa-calendar-alt"></i> 2024</span>
+                <span class="hack-tag">Web Dev</span>
+                <span class="hack-tag">Healthcare</span>
+            </div>
+            <div class="hack-team"><i class="fas fa-users"></i> Team of 4</div>
+            <a href="#" class="hack-link" id="hl-2">
+                <i class="fas fa-external-link-alt"></i> View Certificate
+            </a>
+        </article>
+
+        <!-- Hackathon 3 — Finalist -->
+        <article class="hack-card" data-category="finalist" style="animation-delay:.15s">
+            <div class="hack-header">
+                <span class="hack-emoji">🥈</span>
+                <span class="result-badge badge-finalist"><i class="fas fa-medal"></i> Finalist</span>
+            </div>
+            <h2 class="hack-name">HackWithInfy 2024</h2>
+            <p class="hack-org">Infosys Foundation</p>
+            <p class="hack-desc">
+                Reached the finalist round of Infosys's national hackathon. Built a Food Resource platform to connect
+                food donors with recipients, reducing food wastage in local communities.
+            </p>
+            <div class="hack-meta">
+                <span class="hack-date"><i class="fas fa-calendar-alt"></i> 2024</span>
+                <span class="hack-tag">Social Impact</span>
+                <span class="hack-tag">Web Dev</span>
+            </div>
+            <div class="hack-team"><i class="fas fa-users"></i> Team of 3</div>
+            <a href="#" class="hack-link" id="hl-3">
+                <i class="fas fa-external-link-alt"></i> View Certificate
+            </a>
+        </article>
+
+        <!-- Hackathon 4 — Finalist -->
+        <article class="hack-card" data-category="finalist" style="animation-delay:.2s">
+            <div class="hack-header">
+                <span class="hack-emoji">⚡</span>
+                <span class="result-badge badge-finalist"><i class="fas fa-medal"></i> Finalist</span>
+            </div>
+            <h2 class="hack-name">Techno-Thon 2023</h2>
+            <p class="hack-org">LPU Tech Fest — Lovely Professional University</p>
+            <p class="hack-desc">
+                Competed in the annual tech fest hackathon, reaching the final round with a Python-based automation tool
+                for data processing and file management workflows.
+            </p>
+            <div class="hack-meta">
+                <span class="hack-date"><i class="fas fa-calendar-alt"></i> 2023</span>
+                <span class="hack-tag">Python</span>
+                <span class="hack-tag">Automation</span>
+            </div>
+            <div class="hack-team"><i class="fas fa-users"></i> Team of 2</div>
+            <a href="#" class="hack-link" id="hl-4">
+                <i class="fas fa-external-link-alt"></i> View Certificate
+            </a>
+        </article>
+
+        <!-- Hackathon 5 — Participant -->
+        <article class="hack-card" data-category="participant" style="animation-delay:.25s">
+            <div class="hack-header">
+                <span class="hack-emoji">🎯</span>
+                <span class="result-badge badge-participant"><i class="fas fa-flag-checkered"></i> Participated</span>
+            </div>
+            <h2 class="hack-name">Code for Good — JP Morgan 2024</h2>
+            <p class="hack-org">J.P. Morgan Chase & Co.</p>
+            <p class="hack-desc">
+                Worked on a social impact tech solution over 24 hours for a non-profit organization. Gained experience
+                in agile teamwork, rapid prototyping, and presenting to industry mentors.
+            </p>
+            <div class="hack-meta">
+                <span class="hack-date"><i class="fas fa-calendar-alt"></i> 2024</span>
+                <span class="hack-tag">Social Impact</span>
+                <span class="hack-tag">Full Stack</span>
+            </div>
+            <div class="hack-team"><i class="fas fa-users"></i> Team of 5</div>
+            <a href="#" class="hack-link" id="hl-5">
+                <i class="fas fa-external-link-alt"></i> View Certificate
+            </a>
+        </article>
+
+        <!-- Hackathon 6 — Participant -->
+        <article class="hack-card" data-category="participant" style="animation-delay:.3s">
+            <div class="hack-header">
+                <span class="hack-emoji">🌐</span>
+                <span class="result-badge badge-participant"><i class="fas fa-flag-checkered"></i> Participated</span>
+            </div>
+            <h2 class="hack-name">Hack36 — MNNIT Allahabad 2024</h2>
+            <p class="hack-org">Motilal Nehru National Institute of Technology</p>
+            <p class="hack-desc">
+                Participated in one of North India's largest 36-hour hackathons. Built a real-time web dashboard for
+                tracking community resources and volunteering opportunities.
+            </p>
+            <div class="hack-meta">
+                <span class="hack-date"><i class="fas fa-calendar-alt"></i> 2024</span>
+                <span class="hack-tag">Web Dev</span>
+                <span class="hack-tag">Community</span>
+            </div>
+            <div class="hack-team"><i class="fas fa-users"></i> Team of 4</div>
+            <a href="#" class="hack-link" id="hl-6">
+                <i class="fas fa-external-link-alt"></i> View Certificate
+            </a>
+        </article>
+
+        <!-- Hackathon 7 — Participant -->
+        <article class="hack-card" data-category="participant" style="animation-delay:.35s">
+            <div class="hack-header">
+                <span class="hack-emoji">🚀</span>
+                <span class="result-badge badge-participant"><i class="fas fa-flag-checkered"></i> Participated</span>
+            </div>
+            <h2 class="hack-name">MLH Local Hack Day 2023</h2>
+            <p class="hack-org">Major League Hacking (MLH)</p>
+            <p class="hack-desc">
+                Joined the globally synchronized hack day event and built a browser-based mini game in C++ compiled to
+                WebAssembly — exploring the intersection of systems programming and the web.
+            </p>
+            <div class="hack-meta">
+                <span class="hack-date"><i class="fas fa-calendar-alt"></i> 2023</span>
+                <span class="hack-tag">C++</span>
+                <span class="hack-tag">Game Dev</span>
+            </div>
+            <div class="hack-team"><i class="fas fa-users"></i> Solo</div>
+            <a href="#" class="hack-link" id="hl-7">
+                <i class="fas fa-external-link-alt"></i> View Certificate
+            </a>
+        </article>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="page-footer">
+        <p>© 2026 <a href="index.html">Dhruvesh Singh Om</a>. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Theme sync
+        const hackBody = document.getElementById('hack-body');
+        const hackThemeBtn = document.getElementById('hack-theme-btn');
+        if (localStorage.getItem('theme') === 'light') {
+            hackBody.classList.add('light-mode');
+            hackThemeBtn.querySelector('i').className = 'fas fa-sun';
+        }
+        hackThemeBtn.addEventListener('click', () => {
+            hackBody.classList.toggle('light-mode');
+            const isLight = hackBody.classList.contains('light-mode');
+            hackThemeBtn.querySelector('i').className = isLight ? 'fas fa-sun' : 'fas fa-moon';
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        });
+
+        // Filter
+        const filterPills = document.querySelectorAll('.filter-pill');
+        const hackCards = document.querySelectorAll('.hack-card');
+        filterPills.forEach(pill => {
+            pill.addEventListener('click', function () {
+                filterPills.forEach(p => p.classList.remove('active'));
+                this.classList.add('active');
+                const filter = this.dataset.filter;
+                hackCards.forEach((card, i) => {
+                    const match = filter === 'all' || card.dataset.category === filter;
+                    card.classList.toggle('hidden', !match);
+                    if (match) card.style.animationDelay = (i * 0.06) + 's';
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
